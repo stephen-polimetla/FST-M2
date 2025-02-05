@@ -29,7 +29,7 @@
         <com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.FirefoxDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig" testname="jp@gc - Firefox Driver Config" enabled="true">
           <boolProp name="WebDriverConfig.acceptinsecurecerts">false</boolProp>
           <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
-          <stringProp name="WebDriverConfig.driver_path">C:/Users/ithubU7C744/Downloads/geckodriver-v0.34.0-win64/geckodriver.exe</stringProp>
+          <stringProp name="WebDriverConfig.driver_path">C:/Users/002U7C744/Downloads/geckodriver-v0.34.0-win64/geckodriver.exe</stringProp>
           <boolProp name="WebDriverConfig.dev_mode">false</boolProp>
           <boolProp name="WebDriverConfig.headless">false</boolProp>
           <boolProp name="WebDriverConfig.maximize_browser">true</boolProp>
