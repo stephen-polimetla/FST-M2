@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: postgres
+  template:
+    metadata:
+      labels:
+        component: postgres
+    spec:
+      volumes:
+        - name: postgres-storage
+          persistentVolumeClaim:
+            claimName: database-persistent-volume-claim
+      containers:
+        - name: postgres
+          image: postgres
+          volumeMounts:
+            - name: postgres-storage
+              mountPath: /var/lib/postgresql/data
+              subPath: postgres
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pgpassword
+                  key: POSTGRES_PASSWORD
+          # Define the resource limits and requests for the container
+          resources:
+            limits:
+              # The maximum amount of memory the container can use
+              memory: "512Mi"
+              # The maximum amount of CPU the container can use
+              cpu: "500m"
+            requests:
+              # The minimum amount of memory the container needs
+              memory: "256Mi"
+              # The minimum amount of CPU the container needs
+              cpu: "250m"
+
