@@ -1,0 +1,17 @@
+# Set the base Image
+FROM docker.io/node:18-alpine
+
+# Create the working directory
+WORKDIR /usr/app
+
+# Copy the file to the working directory
+COPY package.json .
+
+# Download and install the application dependencies
+RUN npm install
+
+# Copy the rest of the files to the working directory
+COPY . .
+
+# Set the default command to start node js application
+CMD ["npm", "start"]
